@@ -2,6 +2,7 @@ package com.example.newpractice
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.cachedIn
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,12 +14,14 @@ class MovieViewModel: ViewModel() {
     private val _movieList = MutableStateFlow<List<Result>>(listOf())
     val movieList = _movieList.asStateFlow()
 
-    fun fetchData(){
+    /*fun fetchData(){
         viewModelScope.launch(Dispatchers.IO) {
             val response = repository.fetchData()
             if(response.isSuccessful){
                 _movieList.emit(response.body()?.results!!)
             }
         }
-    }
+    }*/
+
+    val mData = repository.getMovies().flow.cachedIn(viewModelScope)
 }

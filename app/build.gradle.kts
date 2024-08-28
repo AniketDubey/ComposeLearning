@@ -84,4 +84,7 @@ dependencies {
     implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
 
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
+
+    implementation ( "androidx.paging:paging-runtime-ktx:3.2.1")
+    implementation ("androidx.paging:paging-compose:3.3.0-alpha02")
 }
